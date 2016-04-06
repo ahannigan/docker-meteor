@@ -1,0 +1,17 @@
+version: '2'
+
+services:
+  app:
+    image: ahannigan/meteor:latest
+    volumes:
+      - .:/app
+    ports:
+      - "3000:3000"
+    links:
+      - mongo
+    environment:
+      - MONGO_URL=mongodb://mongo/myapp
+    depends_on:
+      - mongo
+  mongo:
+    image: mongo:latest
