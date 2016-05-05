@@ -2,6 +2,8 @@
 
 Meteor in Docker.
 
+## Overview
+
 - WORKDIR /app
 - Default EXPOSE 3000
 - ENTRYPOINT meteor

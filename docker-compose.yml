@@ -1,17 +1,22 @@
 version: '2'
 
+networks:
+  main:
+
 services:
   app:
     image: ahannigan/meteor:latest
     volumes:
-      - .:/app
+      - ./app:/app
+    networks:
+     - main
     ports:
-      - "3000:3000"
-    links:
-      - mongo
+      - "3000"
     environment:
       - MONGO_URL=mongodb://mongo/myapp
     depends_on:
       - mongo
   mongo:
     image: mongo:latest
+    networks:
+     - main
